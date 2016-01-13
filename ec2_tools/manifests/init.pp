@@ -57,5 +57,7 @@ class ec2_missing_tools {
     command => 'cd /root && unzip /root/ec2_missing_tools_6cf0b19.zip',
     require => [ File['/root/ec2_missing_tools_6cf0b19.zip'], Package['unzip'], Class['ec2_tools'] ],
     path => '/bin:/usr/bin',
+    refreshonly => true,
+    subscribe => File['/root/ec2_missing_tools_6cf0b19.zip'],
   }
 }
